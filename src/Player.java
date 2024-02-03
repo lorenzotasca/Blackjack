@@ -12,14 +12,14 @@ public class Player {
     DataOutputStream os = new DataOutputStream(socket.getOutputStream()); 
     DataInputStream is = new DataInputStream(socket.getInputStream()); 
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); 
-    System.out.print("Per disconnettersi dal Server scrivere: QUIT\n"); 
+    System.out.print("To disconnect from the game, type: QUIT\n"); 
 
     //Ciclo infinito per inserimento testo del Client 
     while (true) 
     { 
       System.out.print("Waiting for more players\n");
       //System.out.print("Welcome player, please insert yosur name: ");
-      System.out.print("Welcome player");
+      System.out.print("Welcome player\n");
       System.out.print("Insert: "); 
       String userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
