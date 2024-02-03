@@ -8,7 +8,12 @@ public class Game {
 
         // Avvia la partita nel dealer
         Thread dealerThread = new Thread(() -> {
-            dealer.startGame();
+            try {
+                dealer.start();
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
         });
         dealerThread.start();
 

@@ -8,14 +8,6 @@ import java.util.*;
 
 public class Dealer {
 
-
-    private ServerSocket serverSocket;
-    private Socket playerSocket;
-    private BufferedReader reader;
-    private PrintWriter writer;
-
-
-
     Card card;
 
     public Dealer(){
@@ -26,41 +18,21 @@ public class Dealer {
         //card.ValueCard();
         Distribute(card.bunchs);
 
-        try {
-            serverSocket = new ServerSocket(7777);
-            System.out.println("Il dealer è in attesa di giocatori...");
-
-            playerSocket = serverSocket.accept();
-            System.out.println("Giocatore connesso.");
-
-            reader = new BufferedReader(new InputStreamReader(playerSocket.getInputStream()));
-            writer = new PrintWriter(playerSocket.getOutputStream(), true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
     }
 
 
-    public void startGame() {
-        try {
-            // Esempio di lettura del messaggio dal giocatore
-            String message = reader.readLine();
-            System.out.println("Messaggio dal giocatore: " + message);
-            
-            // Esempio di invio di una risposta al giocatore
-            writer.println("Benvenuto, giocatore!");
-
-            // Implementa il resto della logica di gioco del dealer qui
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                playerSocket.close();
-                serverSocket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void start() throws Exception {
+        ServerSocket serverSocket = new ServerSocket(7777);
+    
+        //Ciclo infinito di ascolto dei Client
+        while(true)
+        {
+          System.out.println(" Attesa ");
+          Socket socket = serverSocket.accept();
+          System.out.println("Ricezione una chiamata di apertura da:\n" + socket);
+          //avvia il processo per ogni client 
+          ServerThread serverThread = new ServerThread(socket);
+          serverThread.start();
         }
     }
 
@@ -130,6 +102,11 @@ public class Dealer {
         }while(continueLoop);
 
         
+    }
+
+    public static void main (String[] args) throws Exception {
+        Dealer tcpServer = new Dealer();
+        tcpServer.start();
     }
 
 
