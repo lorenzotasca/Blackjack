@@ -17,7 +17,10 @@ public class Player {
     //Ciclo infinito per inserimento testo del Client 
     while (true) 
     { 
-      System.out.print("Inserisci: "); 
+      System.out.print("Waiting for more players\n");
+      //System.out.print("Welcome player, please insert yosur name: ");
+      System.out.print("Welcome player");
+      System.out.print("Insert: "); 
       String userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
       break; 
