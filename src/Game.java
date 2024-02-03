@@ -14,7 +14,8 @@ public class Game {
             }
         });
         dealerThread.start();
-
+        
+        /*
         // Creazione e avvio dei giocatori (Player)
         for (int i = 1; i <= 7; i++) {
             final int playerNumber = i;
@@ -28,6 +29,7 @@ public class Game {
             });
             playerThread.start();
         }
+        */
     }
 
     public void Start(){
