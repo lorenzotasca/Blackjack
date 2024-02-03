@@ -1,22 +1,33 @@
 public class Game {
     
     
-    public static void main(String[] args) {
-
-        // Crea un oggetto Dealer (server)
+    public static void main(String[] args) throws Exception {
+        // Creazione del Dealer
         Dealer dealer = new Dealer();
 
-        // Avvia la partita nel dealer
+        // Creazione e avvio del thread del Dealer
         Thread dealerThread = new Thread(() -> {
             try {
                 dealer.start();
             } catch (Exception e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         });
         dealerThread.start();
 
+        // Creazione e avvio dei giocatori (Player)
+        for (int i = 1; i <= 7; i++) {
+            final int playerNumber = i;
+            Thread playerThread = new Thread(() -> {
+                try {
+                    Player player = new Player();
+                    player.start(playerNumber);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            });
+            playerThread.start();
+        }
     }
 
     public void Start(){

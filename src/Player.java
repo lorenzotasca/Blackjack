@@ -4,7 +4,7 @@ import java.net.Socket;
 public class Player {
   // risoste del player al dealer (hit, stand, double, split, surrender)
 
-  public void start()throws IOException { 
+  public void start(int playerNumber)throws IOException { 
     //Connessione della Socket con il Server 
     Socket socket = new Socket("localhost", 7777); 
 
@@ -30,9 +30,9 @@ public class Player {
     is.close(); 
     socket.close(); 
   } 
-  public static void main (String[] args) throws Exception { 
+  /*public static void main (String[] args) throws Exception { 
     Player tcpClient = new Player(); 
     tcpClient.start(); 
-  } 
+  } */
 
 }
