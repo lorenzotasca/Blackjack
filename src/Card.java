@@ -22,43 +22,11 @@ public class Card {
         for (int i= 0; i < gameCards.length; i++){ 
             // in 6 bunches, there are 6 cards for each gameCard with the same seed
             bunchs.put(gameCards[i], new ArrayList<Integer>(Arrays.asList(6, 6, 6, 6))); // cuori, quadri, fiori, picche
-            System.out.println("Key: " + gameCards[i] + ", Value: " + bunchs.get(gameCards[i])); // print the key and its value
+            //System.out.println("Key: " + gameCards[i] + ", Value: " + bunchs.get(gameCards[i])); // print the key and its value
             
         }
         return bunchs;
     }
-
-    /*
-    public HashMap<String, ArrayList<String>> CreateDesk(){
-
-        for (int i= 0; i < gameCards.length; i++){ 
-            
-            deskName.put(gameCards[i], new ArrayList<String>(Arrays.asList("cuori", "quadri", "fiori", "picche"))); // cuori, quadri, fiori, picche
-            System.out.println("Key: " + gameCards[i] + ", Value: " + deskName.get(gameCards[i])); // print the key and its value
-            
-        }
-        return deskName;
-    }
-    */
-
-    //rifai con hashmap
-    /*
-    public String[] CreateDesk(){
-
-        int count = 0;
-        for (int i = 0; i < seeds.length; i++){
-            for (int j = 0; j < gameCards.length; j++){
-                
-                cards[count] = gameCards[j] + " " + seeds[i];
-                System.out.println(cards[count]);
-                count++;
-                
-            }
-        }
-        return cards;
-        
-    }
-    */
 
     public void ValueCard(){
 
