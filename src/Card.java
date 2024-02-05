@@ -34,33 +34,28 @@ public class Card {
 
     private int getValue(String card) {
 
-        switch (card.toLowerCase()) {
-            case "asso":
-                return 11; // o 1 a seconda della situazione
-            case "2":
-                return 2;
-            case "3":
-                return 3;
-            case "4":
-                return 4;
-            case "5":
-                return 5;
-            case "6":
-                return 6;
-            case "7":
-                return 7;
-            case "8":
-                return 8;
-            case "9":
-                return 9;
-            case "10":
-            case "jack":
-            case "donna":
-            case "re":
-                return 10;
-            default:
-                return 0;
-        }
+        if(card.contains("asso"))
+            return 11; // o 1 a seconda della situazione
+        else if(card.contains("2"))
+            return 2;
+        else if(card.contains("3"))
+            return 3;
+        else if(card.contains("4"))
+            return 4;
+        else if(card.contains("5"))
+            return 5;
+        else if(card.contains("6"))
+            return 6;
+        else if(card.contains("7"))
+            return 7;
+        else if(card.contains("8"))
+            return 8;
+        else if(card.contains("9"))
+            return 9;
+        else if(card.contains("10") || card.contains("jack") || card.contains("donna") || card.contains("re"))
+            return 10;
+        else
+            return 0;
     }
     
     
