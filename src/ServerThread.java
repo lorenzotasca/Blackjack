@@ -20,9 +20,9 @@ class ServerThread extends Thread {
         if (userInput == null || userInput.equals("QUIT"))
             break;
         os.writeBytes(userInput + '\n');
-        System.out.println("Il Client "+ socket.getInetAddress() +" "
+        System.out.println("Player "+ socket.getInetAddress() +" "
         + socket.getPort() +" "
-        + socket.getLocalPort() +" ha scritto: " + userInput);
+        + socket.getLocalPort() +" wrote: " + userInput);
         }
         os.close();
         is.close();
