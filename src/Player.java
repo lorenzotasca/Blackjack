@@ -64,12 +64,12 @@ public class Player {
 
 
 
-      System.out.print("What do you want to do? (card/stand): ");
+      System.out.print("What do you want to do? (hit/stand): ");
       String response = stdIn.readLine();
       os.writeBytes(response + '\n');  
   
       // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
-      if (response.equalsIgnoreCase("card")) {
+      if (response.equalsIgnoreCase("hit")) {
         String newCard = newCard();
         totalValue += card.calculateValueCard(newCard);
         System.out.println("New total value of your cards: " + totalValue);
@@ -82,7 +82,7 @@ public class Player {
         System.out.println("You chose to stand. Your final total value: " + totalValue);
         break;
       } else {
-        System.out.println("Invalid response. Please enter 'card' or 'stand'.");
+        System.out.println("Invalid response. Please enter 'hit' or 'stand'.");
       }
 
 
