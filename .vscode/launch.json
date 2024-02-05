@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Dealer",
+            "request": "launch",
+            "mainClass": "Dealer",
+            "projectName": "Blackjack_6b94389c"
+        },
+        {
+            "type": "java",
             "name": "Player",
             "request": "launch",
             "mainClass": "Player",

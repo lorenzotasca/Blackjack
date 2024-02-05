@@ -42,7 +42,7 @@ public class Player {
       //System.out.print("The dealer is waiting for your move\n");
       //System.out.print("The dealer is waiting for the other players\n");
       
-      System.out.print("Your cards:   " + dealer.Distribute(card.bunchs) + " - " + dealer.Distribute(card.bunchs) + "\n");
+      System.out.print("Your cards:   " + dealer.Distribute(card.bunchs) + "   " + dealer.Distribute(card.bunchs) + "\n");
 
       System.out.print("Insert: "); 
       String userInput = stdIn.readLine(); 
