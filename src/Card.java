@@ -5,7 +5,7 @@ public class Card {
     String[] gameCards = {"asso", "2", "3" ,"4", "5", "6", "7", "8", "9", "10", "jack", "donna", "re"};
     String[] seeds = new String[4];
 
-    String[] cards = new String[gameCards.length * seeds.length]; // until I don't put the images, I'll use this array
+    //String[] cards = new String[gameCards.length * seeds.length]; // until I don't put the images, I'll use this array
 
     HashMap<String, ArrayList<Integer>> bunchs;
     //HashMap<String, ArrayList<String>> deskName;
@@ -28,36 +28,41 @@ public class Card {
         return bunchs;
     }
 
-    public void ValueCard(){
-
-        int[] value = new int[cards.length];
-
-        for (int i = 0; i < cards.length; i++){
-            if (cards[i].contains("asso")){
-                value[i] = 1; // or 11
-            } else if (cards[i].contains("2")){
-                value[i] = 2;
-            } else if (cards[i].contains("3")){
-                value[i] = 3;
-            } else if (cards[i].contains("4")){
-                value[i] = 4;
-            } else if (cards[i].contains("5")){
-                value[i] = 5;
-            } else if (cards[i].contains("6")){
-                value[i] = 6;
-            } else if (cards[i].contains("7")){
-                value[i] = 7;
-            } else if (cards[i].contains("8")){
-                value[i] = 8;
-            } else if (cards[i].contains("9")){
-                value[i] = 9;
-            } else if (cards[i].contains("10") || cards[i].contains("jack") || cards[i].contains("donna") || cards[i].contains("re")){
-                value[i] = 10;
-            }
-        }
-
+    public int calculateValueCard(String card) {
+        return getValue(card);
     }
 
+    private int getValue(String card) {
+
+        switch (card.toLowerCase()) {
+            case "asso":
+                return 11; // o 1 a seconda della situazione
+            case "2":
+                return 2;
+            case "3":
+                return 3;
+            case "4":
+                return 4;
+            case "5":
+                return 5;
+            case "6":
+                return 6;
+            case "7":
+                return 7;
+            case "8":
+                return 8;
+            case "9":
+                return 9;
+            case "10":
+            case "jack":
+            case "donna":
+            case "re":
+                return 10;
+            default:
+                return 0;
+        }
+    }
+    
     
 
 }
