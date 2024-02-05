@@ -75,7 +75,7 @@ public class Player {
         System.out.println("New total value of your cards: " + totalValue);
 
         if (totalValue > 21) {
-          System.out.println("Busted! Your total value is over 21.");
+          System.out.println("Busted! Your total value is " + totalValue + ", over 21.");
           break;
         }
       } else if (response.equalsIgnoreCase("stand")) {
