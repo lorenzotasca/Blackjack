@@ -66,6 +66,7 @@ public class Player {
 
       System.out.print("What do you want to do? (card/stand): ");
       String response = stdIn.readLine();
+      os.writeBytes(response + '\n');  
   
       // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
       if (response.equalsIgnoreCase("card")) {
@@ -86,13 +87,14 @@ public class Player {
 
 
 
-      
+      /*
       System.out.print("Insert: "); 
       String userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
         break; 
       os.writeBytes(userInput + '\n');  
       System.out.println("Hai digitato: " + is.readLine()); 
+      */
       
     } 
 
