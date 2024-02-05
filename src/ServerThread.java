@@ -7,7 +7,7 @@ class ServerThread extends Thread {
     private Socket socket;
     public ServerThread (Socket socket) {
     this.socket = socket;
-    System.out.println("Stato    Tipo Richiesta  Porta Server  Porta Client  Indirizzo Client\n");
+    System.out.println("State    Request type  Server port  Client port  Client adress\n");
     }
 
     //esecuzione del Thread sul Socket
@@ -26,7 +26,7 @@ class ServerThread extends Thread {
         }
         os.close();
         is.close();
-        System.out.println("Ricezione una chiamata di chiusura da:\n" + socket + "\n");
+        System.out.println("Receiving a closing call from:\n" + socket + "\n");
         socket.close();
     }
     catch (IOException e) {

@@ -63,6 +63,11 @@ public class Player {
 
 
 
+      if (totalValue == 21) {
+        System.out.println("Blackjack! Your total value is 21.");
+        os.writeBytes("Blackjack!\n");
+        break;
+      }
 
       System.out.print("What do you want to do? (hit/stand): ");
       String response = stdIn.readLine();
@@ -76,10 +81,12 @@ public class Player {
 
         if (totalValue > 21) {
           System.out.println("Busted! Your total value is " + totalValue + ", over 21.");
+          os.writeBytes("Busted with " + totalValue + "\n");
           break;
         }
-      } else if (response.equalsIgnoreCase("stand")) {
+      }else if (response.equalsIgnoreCase("stand")) {
         System.out.println("You chose to stand. Your final total value: " + totalValue);
+        os.writeBytes("Stand with " + totalValue + '\n');
         break;
       } else {
         System.out.println("Invalid response. Please enter 'hit' or 'stand'.");

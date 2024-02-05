@@ -22,15 +22,17 @@ public class Dealer {
         ServerSocket serverSocket = new ServerSocket(7777);
     
         //Ciclo infinito di ascolto dei Client
+        //fai uscire le carte anche al dealer
         while(true)
         {
-          System.out.println(" Attesa ");
+          System.out.println(" Waiting... ");
           Socket socket = serverSocket.accept();
-          System.out.println("Ricezione una chiamata di apertura da:\n" + socket);
+          System.out.println("Receiving an opening call from:\n" + socket);
           //avvia il processo per ogni client 
           ServerThread serverThread = new ServerThread(socket);
           serverThread.start();
         }
+        
     }
 
 
