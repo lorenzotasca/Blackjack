@@ -18,7 +18,7 @@ public class Player {
   
   public String newCard() {
     String newCard = dealer.Distribute(card.bunchs);
-    System.out.println("New card:");
+    System.out.println("\nNew card:");
     System.out.println(newCard + "\n");
     return newCard;
   }
@@ -39,7 +39,7 @@ public class Player {
     System.out.print("The dealer is waiting for the other players\n");
     System.out.print("The game is starting\n\n");
     
-    System.out.print("The dealer is distributing the cards\n");
+    System.out.println("The dealer is distributing the cards\n");
 
 
     //get the start two cards
@@ -48,7 +48,7 @@ public class Player {
 
     int totalValue = card.calculateValueCard(card1) + card.calculateValueCard(card2);
 
-    System.out.print("Your cards:");
+    System.out.println("Your cards:");
     System.out.println(card1);
     System.out.println(card2);
     System.out.print("Total value of your cards: " + totalValue + "\n");
@@ -86,14 +86,14 @@ public class Player {
 
 
 
-      /*
+      
       System.out.print("Insert: "); 
       String userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
         break; 
       os.writeBytes(userInput + '\n');  
       System.out.println("Hai digitato: " + is.readLine()); 
-      */
+      
     } 
 
     //Chiusura dello Stream e del Socket 
