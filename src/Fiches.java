@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Fiches {
             
-    private HashMap<Integer, Integer> fiches; //value of fiches and the quantity of fiches
+    HashMap<Integer, Integer> fiches; //value of fiches and the quantity of fiches
 
     public Fiches() {
         this.fiches = new HashMap<>();

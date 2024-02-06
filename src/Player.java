@@ -45,9 +45,22 @@ public class Player {
 
     //bet
     System.out.print("You have " + fiches.getTotalValue() + "$ devide in:\n");
-    for (int i = 0; i < fiches.size(); i++) {
-      System.out.print(fiches.getFiches(fiches.size()) + " fiches of " + fiches.size() + "\n");
+    /*
+    for (Integer key : fiches.getFiches().keySet()) {
+      System.out.print(fiches.getFiches(key) + " fiches of " + key + "\n");
     }
+    */
+
+    for (Integer value : fiches.fiches.keySet()){
+      System.out.println(fiches.getFiches(value) + " fiches of " + value);
+    }
+    /*
+    System.out.print(fiches.getFiches(100) + " fiches of " + 100 + "\n");
+    System.out.print(fiches.getFiches(50) + " fiches of " + 50 + "\n");
+    System.out.print(fiches.getFiches(20) + " fiches of " + 20 + "\n");
+    System.out.print(fiches.getFiches(10) + " fiches of " + 10 + "\n");
+    System.out.print(fiches.getFiches(5) + " fiches of " + 5 + "\n");
+    */
     System.out.print("Make a bet\n");
     int bet = Integer.parseInt(stdIn.readLine());
     os.writeBytes("Bet: " + bet + '\n');
