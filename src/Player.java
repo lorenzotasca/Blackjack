@@ -6,6 +6,7 @@ public class Player {
 
   Card card;
   Dealer dealer;
+  Fiches fiches;
   
 
   public Player() {
@@ -13,6 +14,7 @@ public class Player {
     card = new Card();
     dealer = new Dealer();
     card.CreateStructureBunch();
+    fiches = new Fiches();
     
   }
   
@@ -34,10 +36,20 @@ public class Player {
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); 
     System.out.print("To disconnect from the game, type: QUIT\n"); 
 
+    //introduction
     System.out.print("Welcome player\n");
     //System.out.print("Welcome player, please insert yosur name: ");
     System.out.print("The dealer is waiting for the other players\n");
     System.out.print("The game is starting\n\n");
+
+
+    //bet
+    System.out.print("You have " + fiches.getTotalValue() + " fiches\n");
+    System.out.print("Make a bet\n");
+    int bet = Integer.parseInt(stdIn.readLine());
+    os.writeBytes("Bet: " + bet + '\n');
+    fiches.removeFiches(bet, 1);
+
     
     System.out.println("The dealer is distributing the cards\n");
 
@@ -63,7 +75,10 @@ public class Player {
 
     while (true) 
     { 
-      //System.out.print("Fai la puntata\n");
+      
+      System.out.println("Fiches rimaste: " + fiches.getTotalValue());
+      os.writeBytes("Fiches rimaste: " + fiches.getTotalValue() + '\n');
+
       
       //System.out.print("The dealer is waiting for your move\n");
       

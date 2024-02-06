@@ -2,6 +2,7 @@ public class Game {
     
     
     public static void main(String[] args) throws Exception {
+        /*
         // Creazione del Dealer
         Dealer dealer = new Dealer();
 
@@ -15,9 +16,8 @@ public class Game {
         });
         dealerThread.start();
         
-        /*
         // Creazione e avvio dei giocatori (Player)
-        for (int i = 1; i <= 7; i++) {
+        for (int i = 0; i <= 7; i++) {
             final int playerNumber = i;
             Thread playerThread = new Thread(() -> {
                 try {

@@ -1,7 +1,8 @@
 import java.util.HashMap;
 
 public class Fiches {
-    private HashMap<Integer, Integer> fiches; // Mappa che associa il valore delle fiches alla quantità
+            
+    private HashMap<Integer, Integer> fiches; //value of fiches and the quantity of fiches
 
     // Costruttore
     public Fiches() {
