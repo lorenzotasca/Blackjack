@@ -61,11 +61,16 @@ public class Player {
     System.out.print(fiches.getFiches(10) + " fiches of " + 10 + "\n");
     System.out.print(fiches.getFiches(5) + " fiches of " + 5 + "\n");
     */
-    System.out.print("Make a bet\n");
-    int bet = Integer.parseInt(stdIn.readLine());
-    os.writeBytes("Bet: " + bet + '\n');
-    fiches.removeFiches(bet, 1);
-
+    //System.out.print("Make a bet\n");
+    int totBet = 0;
+    for (Integer value : fiches.fiches.keySet()){
+      System.out.println("How many fiches of " + value + " do you want to bet: ");
+      int bet = Integer.parseInt(stdIn.readLine());
+      totBet += bet * value;
+      fiches.removeFiches(bet, 1);
+    }
+    
+    os.writeBytes("Bet: " + totBet + '\n');
     
     System.out.println("The dealer is distributing the cards\n");
 
