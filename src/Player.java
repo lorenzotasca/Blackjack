@@ -54,7 +54,12 @@ public class Player {
     System.out.println("Your cards:");
     System.out.println(card1);
     System.out.println(card2);
+    os.writeBytes("Cards of Player: \n");
+    os.writeBytes(card1 + "\n");
+    os.writeBytes(card2 + "\n");
     System.out.print("Total value of your cards: " + totalValue + "\n");
+    os.writeBytes("Total value: " + totalValue + '\n');
+
 
     while (true) 
     { 
@@ -79,19 +84,27 @@ public class Player {
       // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
       if (response.equalsIgnoreCase("hit")) {
         String newCard = newCard();
+        os.writeBytes("New card of Player: \n");
+
+        // metti tutte le carte del player in un array, in modo che ogni volta che gli viene data una nuova carta, metti a video tutte le sue carte
+
+        os.writeBytes(newCard + "\n");
         totalValue += card.calculateValueCard(newCard);
         System.out.println("New total value of your cards: " + totalValue);
+        os.writeBytes("New total value of Player:" + totalValue + "\n");
 
         if (totalValue > 21) {
           System.out.println("Busted! Your total value is " + totalValue + ", over 21.");
           os.writeBytes("Busted with " + totalValue + "\n");
           break;
         }
+
       }else if (response.equalsIgnoreCase("stand")) {
+
         System.out.println("You chose to stand. Your final total value: " + totalValue);
         os.writeBytes("Stand with " + totalValue + '\n');
-        
         break;
+        
       } else {
         System.out.println("Invalid response. Please enter 'hit' or 'stand'.");
       }
@@ -109,7 +122,7 @@ public class Player {
       
     } 
 
-    Thread.sleep(1000);
+    Thread.sleep(1000); // to gave a delay for Dealer to receive the answer
 
     //Chiusura dello Stream e del Socket 
     os.close(); 

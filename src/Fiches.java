@@ -1,0 +1,54 @@
+import java.util.HashMap;
+
+public class Fiches {
+    private HashMap<Integer, Integer> fiches; // Mappa che associa il valore delle fiches alla quantità
+
+    // Costruttore
+    public Fiches() {
+        this.fiches = new HashMap<>();
+        // Inizializza il numero fisso di fiches per ogni valore
+        this.fiches.put(5, 100); // Fiches da 5 con 100 pezzi iniziali
+        this.fiches.put(10, 100); // Fiches da 10 con 100 pezzi iniziali
+        this.fiches.put(20, 50); // Fiches da 20 con 50 pezzi iniziali
+        this.fiches.put(50, 20); // Fiches da 50 con 20 pezzi iniziali
+        this.fiches.put(100, 10); // Fiches da 100 con 10 pezzi iniziali
+    }
+
+
+    /*
+        quando si chiama il metodo getFiches(int value), si passa il valore nominale delle fiches di cui 
+        si desidera conoscere la quantità attuale. In pratica, se si vuole sapere quanti pezzi da 5 hai, 
+        si chiama getFiches(5); se si desidera aggiungere 10 pezzi da 10, si chiama addFiches(10, 10); 
+        e se si desidera rimuovere 5 pezzi da 20, si chiama removeFiches(20, 5).
+    */
+
+    // Metodo per ottenere il numero di fiches di un valore
+    public int getFiches(int value) {
+        return fiches.getOrDefault(value, 0);
+    }
+
+    // Metodo per aggiungere fiches di un valore
+    public void addFiches(int value, int quantity) {
+        int currentQuantity = fiches.getOrDefault(value, 0);
+        fiches.put(value, currentQuantity + quantity);
+    }
+
+    // Metodo per rimuovere fiches di un valore
+    public void removeFiches(int value, int quantity) {
+        int currentQuantity = fiches.getOrDefault(value, 0);
+        if (currentQuantity >= quantity) {
+            fiches.put(value, currentQuantity - quantity);
+        } else {
+            System.out.println("Non hai abbastanza fiches di valore " + value + " per rimuoverne " + quantity);
+        }
+    }
+
+    // Metodo per ottenere il valore totale delle fiches di un giocatore
+    public int getTotalValue() {
+        int totalValue = 0;
+        for (int value : fiches.keySet()) {
+            totalValue += value * fiches.get(value);
+        }
+        return totalValue;
+    }
+}
