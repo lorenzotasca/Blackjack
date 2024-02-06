@@ -46,7 +46,10 @@ public class Player {
     String card1 = dealer.Distribute(card.bunchs);
     String card2 = dealer.Distribute(card.bunchs);
 
-    int totalValue = card.calculateValueCard(card1) + card.calculateValueCard(card2);
+    int valueCard1 = card.calculateValueCard(card1);
+    int valueCard2 = card.calculateValueCard(card2);
+
+    int totalValue = valueCard1 + valueCard2;
 
     System.out.println("Your cards:");
     System.out.println(card1);
@@ -63,7 +66,7 @@ public class Player {
 
 
 
-      if (totalValue == 21) {
+      if ((valueCard1 == 11 && valueCard2 == 10) || (valueCard1 == 10 && valueCard2 == 11)) {
         System.out.println("Blackjack! Your total value is 21.");
         os.writeBytes("Blackjack!\n");
         break;
