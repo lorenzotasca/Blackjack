@@ -46,7 +46,7 @@ public class Player {
     //bet
     System.out.print("You have " + fiches.getTotalValue() + "$ devide in:\n");
     for (int i = 0; i < fiches.size(); i++) {
-      System.out.print(fiches.getFiches(i) + " fiches of " + fiches.getFiches(i) + "\n");
+      System.out.print(fiches.getFiches(fiches.size()) + " fiches of " + fiches.size() + "\n");
     }
     System.out.print("Make a bet\n");
     int bet = Integer.parseInt(stdIn.readLine());
@@ -72,15 +72,15 @@ public class Player {
     os.writeBytes("Cards of Player: \n");
     os.writeBytes(card1 + "\n");
     os.writeBytes(card2 + "\n");
-    System.out.print("Total value of your cards: " + totalValue + "\n");
+    System.out.print("\nTotal value of your cards: " + totalValue + "\n");
     os.writeBytes("Total value: " + totalValue + '\n');
 
 
     while (true) 
     { 
       
-      System.out.println("Fiches rimaste: " + fiches.getTotalValue());
-      os.writeBytes("Fiches rimaste: " + fiches.getTotalValue() + '\n');
+      System.out.println("Fiches left: " + fiches.getTotalValue());
+      os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
 
       
       //System.out.print("The dealer is waiting for your move\n");
