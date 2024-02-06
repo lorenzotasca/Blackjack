@@ -44,7 +44,10 @@ public class Player {
 
 
     //bet
-    System.out.print("You have " + fiches.getTotalValue() + " fiches\n");
+    System.out.print("You have " + fiches.getTotalValue() + "$ devide in:\n");
+    for (int i = 0; i < fiches.size(); i++) {
+      System.out.print(fiches.getFiches(i) + " fiches of " + fiches.getFiches(i) + "\n");
+    }
     System.out.print("Make a bet\n");
     int bet = Integer.parseInt(stdIn.readLine());
     os.writeBytes("Bet: " + bet + '\n');
