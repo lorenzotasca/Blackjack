@@ -24,7 +24,7 @@ public class Player {
   }
   
 
-  public void start()throws IOException { 
+  public void start()throws Exception { 
     //Connessione della Socket con il Server 
     Socket socket = new Socket("localhost", 7777); 
 
@@ -90,6 +90,7 @@ public class Player {
       }else if (response.equalsIgnoreCase("stand")) {
         System.out.println("You chose to stand. Your final total value: " + totalValue);
         os.writeBytes("Stand with " + totalValue + '\n');
+        
         break;
       } else {
         System.out.println("Invalid response. Please enter 'hit' or 'stand'.");
@@ -107,6 +108,8 @@ public class Player {
       */
       
     } 
+
+    Thread.sleep(1000);
 
     //Chiusura dello Stream e del Socket 
     os.close(); 
