@@ -35,12 +35,14 @@ public class Fiches {
     }
 
     // Metod to remove fiches of a valore
-    public void removeFiches(int value, int quantity) {
+    public boolean removeFiches(int value, int quantity) {
         int currentQuantity = fiches.getOrDefault(value, 0);
         if (currentQuantity >= quantity) {
             fiches.put(value, currentQuantity - quantity);
+            return true; // Rimozione riuscita
         } else {
             System.out.println("You don't have enough fisches of " + value + " to remove frome it " + quantity);
+            return false; // Rimozione non riuscita
         }
     }
 
