@@ -25,6 +25,7 @@ public class Fiches {
     // Metod to get the number of fisches of a value
     public int getFiches(int value) {
         return fiches.getOrDefault(value, 0);
+        //return fiches.get(value);
     }
 
     // Metod to add fiches of a value

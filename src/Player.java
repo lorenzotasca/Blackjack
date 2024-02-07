@@ -67,7 +67,7 @@ public class Player {
       System.out.println("How many fiches of " + value + " do you want to bet: ");
       int bet = Integer.parseInt(stdIn.readLine());
       totBet += bet * value;
-      fiches.removeFiches(bet, 1);
+      fiches.removeFiches(value, bet);
     }
     
     os.writeBytes("Bet: " + totBet + '\n');
