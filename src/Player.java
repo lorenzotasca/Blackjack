@@ -71,6 +71,10 @@ public class Player {
     }
     
     os.writeBytes("Bet: " + totBet + '\n');
+
+    System.out.println("Fiches left: " + fiches.getTotalValue());
+    os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
+    
     
     System.out.println("The dealer is distributing the cards\n");
 
@@ -96,10 +100,6 @@ public class Player {
 
     while (true) 
     { 
-      
-      System.out.println("Fiches left: " + fiches.getTotalValue());
-      os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
-
       
       //System.out.print("The dealer is waiting for your move\n");
       
