@@ -75,6 +75,9 @@ public class Player {
           }
         }  
       }
+      if (totBet == 0) {
+        System.out.println("You have to bet at least 1 fiche");
+      }
     }
     
     
