@@ -41,17 +41,9 @@ public class Player {
     //introduction
     System.out.print("Welcome player\n");
     //System.out.print("Welcome player, please insert yosur name: ");
-    System.out.print("The dealer is waiting for the other players\n");
+    System.out.print("The dealer is waiting for the other players...\n");
 
-    System.out.print("You can quit the game now, or at the end of each hand, typing: QUIT\n"); 
-    if(is.readLine().equals("QUIT")){
-      System.out.print("You have disconnected from the game\n");
-      os.writeBytes("QUIT\n");
-      //Chiusura dello Stream e del Socket
-      os.close(); 
-      is.close(); 
-      socket.close();
-    }
+    Thread.sleep(3000);
 
     while(true){
 
@@ -59,6 +51,7 @@ public class Player {
 
       System.out.print("The game is starting\n\n");
 
+      Thread.sleep(1000);
 
       //bet
       System.out.print("You have " + fiches.getTotalValue() + "$ devide in:\n");
@@ -195,10 +188,10 @@ public class Player {
 
       if (verify == -1)
       {
-        System.out.println("Do you want to play another hand? (yes/no)");
+        System.out.println("Do you want to play another hand? (yes/QUIT)");
         String response = stdIn.readLine();
         os.writeBytes(response + '\n');
-        if (response.equalsIgnoreCase("no")) {
+        if (response.equalsIgnoreCase("QUIT")) {
           System.out.println("You have disconnected from the game\n");
           os.writeBytes("QUIT\n");
           //Chiusura dello Stream e del Socket
