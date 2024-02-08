@@ -28,7 +28,6 @@ public class Player {
 
   public void start()throws Exception { 
 
-    int verify = 0;
     //Connessione della Socket con il Server 
     Socket socket = new Socket("localhost", 7777); 
 
@@ -36,7 +35,7 @@ public class Player {
     DataOutputStream os = new DataOutputStream(socket.getOutputStream()); 
     DataInputStream is = new DataInputStream(socket.getInputStream()); 
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); 
-    System.out.print("To disconnect from the game, type: QUIT\n"); 
+    
     
 
     //introduction
@@ -44,7 +43,19 @@ public class Player {
     //System.out.print("Welcome player, please insert yosur name: ");
     System.out.print("The dealer is waiting for the other players\n");
 
+    System.out.print("You can quit the game now, or at the end of each hand, typing: QUIT\n"); 
+    if(is.readLine().equals("QUIT")){
+      System.out.print("You have disconnected from the game\n");
+      os.writeBytes("QUIT\n");
+      //Chiusura dello Stream e del Socket
+      os.close(); 
+      is.close(); 
+      socket.close();
+    }
+
     while(true){
+
+      int verify = 0;
 
       System.out.print("The game is starting\n\n");
 
@@ -118,12 +129,6 @@ public class Player {
       while (true) 
       { 
 
-        if(is.readLine().equals("QUIT")){
-          System.out.print("You have disconnected from the game\n");
-          os.writeBytes("QUIT\n");
-          verify = -1;
-          break;
-        }
         //System.out.print("The dealer is waiting for your move\n");
         
         //System.out.print("Your cards:   " + dealer.Distribute(card.bunchs) + "   " + dealer.Distribute(card.bunchs) + "\n");
@@ -133,6 +138,7 @@ public class Player {
         if ((valueCard1 == 11 && valueCard2 == 10) || (valueCard1 == 10 && valueCard2 == 11)) {
           System.out.println("Blackjack! Your total value is 21.");
           os.writeBytes("Blackjack!\n");
+          verify = -1;
           break;
         }
 
@@ -157,6 +163,7 @@ public class Player {
           if (totalValue > 21) {
             System.out.println("Busted! Your total value is " + totalValue + ", over 21.");
             os.writeBytes("Busted with " + totalValue + "\n");
+            verify = -1;
             break;
           }
 
@@ -164,6 +171,7 @@ public class Player {
 
           System.out.println("You chose to stand. Your final total value: " + totalValue);
           os.writeBytes("Stand with " + totalValue + '\n');
+          verify = -1;
           break;
           
         } else {
@@ -185,17 +193,25 @@ public class Player {
 
       Thread.sleep(1000); // to gave a delay for Dealer to receive the answer of the player
 
-      if (verify == -1) {
-        break;
+      if (verify == -1)
+      {
+        System.out.println("Do you want to play another hand? (yes/no)");
+        String response = stdIn.readLine();
+        os.writeBytes(response + '\n');
+        if (response.equalsIgnoreCase("no")) {
+          System.out.println("You have disconnected from the game\n");
+          os.writeBytes("QUIT\n");
+          //Chiusura dello Stream e del Socket
+          os.close(); 
+          is.close(); 
+          socket.close();
+          break;
+        }
       }
-      
     }
     
 
-    //Chiusura dello Stream e del Socket 
-    os.close(); 
-    is.close(); 
-    socket.close(); 
+    
   } 
   public static void main (String[] args) throws Exception { 
     Player tcpClient = new Player(); 
