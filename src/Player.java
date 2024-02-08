@@ -54,7 +54,7 @@ public class Player {
       Thread.sleep(1000);
 
       //bet
-      System.out.print("You have " + fiches.getTotalValue() + "$ devide in:\n");
+      System.out.print("You have " + fiches.getTotalValue() + "$ devided in:\n");
       /*
       for (Integer key : fiches.getFiches().keySet()) {
         System.out.print(fiches.getFiches(key) + " fiches of " + key + "\n");
@@ -99,6 +99,7 @@ public class Player {
       
       System.out.println("The dealer is distributing the cards\n");
 
+      Thread.sleep(1000);
 
       //get the start two cards
       String card1 = dealer.Distribute(card.bunchs);
@@ -110,7 +111,9 @@ public class Player {
       int totalValue = valueCard1 + valueCard2;
 
       System.out.println("Your cards:");
+      Thread.sleep(1000);
       System.out.println(card1);
+      Thread.sleep(1000);
       System.out.println(card2);
       os.writeBytes("Cards of Player: \n");
       os.writeBytes(card1 + "\n");
