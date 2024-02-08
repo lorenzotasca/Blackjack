@@ -32,7 +32,7 @@ public class Dealer {
           ServerThread serverThread = new ServerThread(socket);
           serverThread.start();
         }
-        
+    
     }
 
 
