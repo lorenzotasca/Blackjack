@@ -63,17 +63,20 @@ public class Player {
     */
     //System.out.print("Make a bet\n");
     int totBet = 0;
-    for (Integer value : fiches.fiches.keySet()){
-      boolean betPlaced = false;
-      while (!betPlaced) {
-        System.out.println("How many fiches of " + value + " do you want to bet: ");
-        int bet = Integer.parseInt(stdIn.readLine());
-        if (fiches.removeFiches(value, bet)) {
-          totBet += bet * value;
-          betPlaced = true; // Esci dal ciclo while se la scommessa è stata piazzata con successo
-        }
+    while(totBet == 0){
+      for (Integer value : fiches.fiches.keySet()){
+        boolean betPlaced = false;
+        while (!betPlaced) {
+          System.out.println("How many fiches of " + value + " do you want to bet: ");
+          int bet = Integer.parseInt(stdIn.readLine());
+          if (fiches.removeFiches(value, bet)) {
+            totBet += bet * value;
+            betPlaced = true; // Esci dal ciclo while se la scommessa è stata piazzata con successo
+          }
+        }  
       }
     }
+    
     
     os.writeBytes("Bet: " + totBet + '\n');
 
