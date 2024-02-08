@@ -17,14 +17,14 @@ public class Player {
     fiches = new Fiches();
     
   }
-  
+  /*
   public String newCard() {
     String newCard = dealer.Distribute(card.bunchs);
     System.out.println("\nNew card:");
     System.out.println(newCard + "\n");
     return newCard;
   }
-  
+  */
 
   public void start()throws Exception { 
     //Connessione della Socket con il Server 
@@ -124,7 +124,9 @@ public class Player {
   
       // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
       if (response.equalsIgnoreCase("hit")) {
-        String newCard = newCard();
+        String newCard = dealer.Distribute(card.bunchs);
+        System.out.println("\nNew card:");
+        System.out.println(newCard + "\n");
         os.writeBytes("New card of Player: \n");
 
         // metti tutte le carte del player in un array, in modo che ogni volta che gli viene data una nuova carta, metti a video tutte le sue carte
