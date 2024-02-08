@@ -35,23 +35,10 @@ public class Player {
     DataOutputStream os = new DataOutputStream(socket.getOutputStream()); 
     DataInputStream is = new DataInputStream(socket.getInputStream()); 
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); 
-    
-    
-
-    //introduction
-    System.out.print("Welcome player\n");
-    //System.out.print("Welcome player, please insert yosur name: ");
-    System.out.print("The dealer is waiting for the other players...\n");
-
-    Thread.sleep(3000);
 
     while(true){
 
       int verify = 0;
-
-      System.out.print("The game is starting\n\n");
-
-      Thread.sleep(1000);
 
       //bet
       System.out.print("You have " + fiches.getTotalValue() + "$ devided in:\n");
@@ -90,26 +77,81 @@ public class Player {
         }
       }
       
+      String serverMessage = is.readLine();
       
       os.writeBytes("Bet: " + totBet + '\n');
 
       System.out.println("Fiches left: " + fiches.getTotalValue());
       os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
       
-      
-      System.out.println("The dealer is distributing the cards\n");
 
-      Thread.sleep(1000);
-
-      //get the start two cards
-      String card1 = dealer.Distribute(card.bunchs);
-      String card2 = dealer.Distribute(card.bunchs);
-
-      int valueCard1 = card.calculateValueCard(card1);
-      int valueCard2 = card.calculateValueCard(card2);
-
-      int totalValue = valueCard1 + valueCard2;
-
+      // Leggi il comando inviato dal ServerThread
+      String serverCommand = is.readLine();      
+      if (serverCommand.equals("INITIAL_CARDS")) {
+          // Leggi le carte iniziali inviate dal ServerThread
+          String initialCards = is.readLine();
+          System.out.println("Your cards:");
+          System.out.println(initialCards);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      }
+      else if (serverCommand.equals("HIT")) {
+          // Leggi la carta inviata dal ServerThread
+          String newCard = is.readLine();
+          System.out.println("New card:");
+          System.out.println(newCard);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      }
+      else if (serverCommand.equals("STAND")) {
+          // Leggi il messaggio inviato dal ServerThread
+          String message = is.readLine();
+          System.out.println(message);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      }
+      else if (serverCommand.equals("BUSTED")) {
+          // Leggi il messaggio inviato dal ServerThread
+          String message = is.readLine();
+          System.out.println(message);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      }
+      else if (serverCommand.equals("BLACKJACK")) {
+          // Leggi il messaggio inviato dal ServerThread
+          String message = is.readLine();
+          System.out.println(message);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      }
+      else if (serverCommand.equals("PLAY_AGAIN")) {
+          // Leggi il messaggio inviato dal ServerThread
+          String message = is.readLine();
+          System.out.println(message);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      }
+      else if (serverCommand.equals("QUIT")) {
+          // Leggi il messaggio inviato dal ServerThread
+          String message = is.readLine();
+          System.out.println(message);
+          
+          // Invia la risposta al ServerThread
+          String response = getUserResponse(); // Metodo per ottenere la risposta del giocatore
+          os.writeBytes(response + "\n");
+      /*
       System.out.println("Your cards:");
       Thread.sleep(1000);
       System.out.println(card1);
@@ -120,7 +162,7 @@ public class Player {
       os.writeBytes(card2 + "\n");
       System.out.print("\nTotal value of your cards: " + totalValue + "\n");
       os.writeBytes("Total value: " + totalValue + '\n');
-
+      */
 
       while (true) 
       { 
@@ -205,6 +247,7 @@ public class Player {
         }
       }
     }
+    
     
 
     
