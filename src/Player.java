@@ -38,6 +38,9 @@ public class Player {
 
     while(true){
 
+      String serverQuestion = is.readLine();
+      System.out.println(serverQuestion); 
+
       int verify = 0;
 
       //bet
