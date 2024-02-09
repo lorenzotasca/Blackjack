@@ -19,7 +19,9 @@ public class Player {
   }
 
   public String receiveMessage(DataInputStream is) throws IOException {
-    return is.readLine();
+    String message = is.readLine();
+    System.out.println(message);
+    return message;
   }
 
   public void start()throws Exception { 
@@ -32,6 +34,7 @@ public class Player {
     DataInputStream is = new DataInputStream(socket.getInputStream()); 
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); 
     
+
     receiveMessage(is);
     receiveMessage(is);
 
