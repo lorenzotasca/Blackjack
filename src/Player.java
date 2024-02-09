@@ -38,8 +38,10 @@ public class Player {
 
     while(true){
 
-      String serverQuestion = is.readLine();
-      System.out.println(serverQuestion); 
+      String serverMessage;
+      while ((serverMessage = is.readLine()) != null) {
+        System.out.println(serverMessage);
+      }
 
       int verify = 0;
 
@@ -80,7 +82,7 @@ public class Player {
         }
       }
       
-      String serverMessage = is.readLine();
+      serverMessage = is.readLine();
       
       os.writeBytes("Bet: " + totBet + '\n');
 
