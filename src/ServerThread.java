@@ -29,9 +29,9 @@ class ServerThread extends Thread {
       DataOutputStream os = new DataOutputStream(socket.getOutputStream());
       BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
-      System.out.print("Welcome player\n");
+      os.writeBytes("Welcome player\n");
       //System.out.print("Welcome player, please insert yosur name: ");
-      System.out.print("The dealer is waiting for the other players...\n");
+      os.writeBytes("The dealer is waiting for the other players...\n");
 
       Thread.sleep(3000);
       
@@ -41,11 +41,11 @@ class ServerThread extends Thread {
         String playerMessage = "";
         int verify = 0;
   
-        System.out.print("The game is starting\n\n");
+        os.writeBytes("The game is starting\n\n");
   
         Thread.sleep(1000);                
         
-        System.out.println("The dealer is distributing the cards\n");
+        os.writeBytes("The dealer is distributing the cards\n");
   
         Thread.sleep(1000);
   
