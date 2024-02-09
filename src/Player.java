@@ -34,7 +34,16 @@ public class Player {
     
     receiveMessage(is);
     receiveMessage(is);
-    
+
+    while (true) {
+      String userInput = stdIn.readLine(); 
+      if (userInput.equals("QUIT")) 
+        break;
+    }
+
+    os.close(); 
+    is.close(); 
+    socket.close(); 
 
   } 
 
