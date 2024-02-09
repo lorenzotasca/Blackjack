@@ -18,7 +18,7 @@ public class Player {
     
   }
 
-  public String receiveMessage(DataInputStream is) throws IOException {
+  private String receiveMessage(DataInputStream is) throws IOException {
     String message = is.readLine();
     System.out.println(message);
     return message;
@@ -44,7 +44,8 @@ public class Player {
 
       //game start
       receiveMessage(is);
-      receiveMessage(is); 
+      //receiveMessage(is);
+      //receiveMessage(is);  
 
       //bet
       System.out.print("You have " + fiches.getTotalValue() + "$ devided in:\n");

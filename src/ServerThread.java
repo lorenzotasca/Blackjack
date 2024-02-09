@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
@@ -18,6 +19,12 @@ public class ServerThread extends Thread{
     dealer = new Dealer();
     card.CreateStructureBunch();
     fiches = new Fiches();
+  }
+
+  private String receiveMessage(DataInputStream is) throws IOException {
+    String message = is.readLine();
+    System.out.println(message);
+    return message;
   }
 
   //esecuzione del Thread sul Socket
@@ -59,6 +66,9 @@ public class ServerThread extends Thread{
         os.writeBytes("Your cards: \n" + card1 + "\n" + card2 + "\n");
 
       }
+      os.close(); 
+      is.close(); 
+      socket.close(); 
 
     }catch(Exception e){
       e.printStackTrace();
