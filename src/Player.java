@@ -34,14 +34,65 @@ public class Player {
     DataInputStream is = new DataInputStream(socket.getInputStream()); 
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)); 
     
+    //introduction
+    receiveMessage(is);
+    receiveMessage(is);
 
-    receiveMessage(is);
-    receiveMessage(is);
+       
 
     while (true) {
+
+      //game start
+      receiveMessage(is);
+      receiveMessage(is); 
+
+      //bet
+      System.out.print("You have " + fiches.getTotalValue() + "$ devided in:\n");
+
+      for (Integer value : fiches.fiches.keySet()){
+        System.out.println(fiches.getFiches(value) + " fiches of " + value);
+      }
+      /*
+      System.out.print(fiches.getFiches(100) + " fiches of " + 100 + "\n");
+      System.out.print(fiches.getFiches(50) + " fiches of " + 50 + "\n");
+      System.out.print(fiches.getFiches(20) + " fiches of " + 20 + "\n");
+      System.out.print(fiches.getFiches(10) + " fiches of " + 10 + "\n");
+      System.out.print(fiches.getFiches(5) + " fiches of " + 5 + "\n");
+      */
+      //System.out.print("Make a bet\n");
+      int totBet = 0;
+      while(totBet == 0){
+        for (Integer value : fiches.fiches.keySet()){
+          boolean betPlaced = false;
+          while (!betPlaced) {
+            System.out.println("How many fiches of " + value + " do you want to bet: ");
+            int bet = Integer.parseInt(stdIn.readLine());
+            if (fiches.removeFiches(value, bet)) {
+              totBet += bet * value;
+              betPlaced = true; // Esci dal ciclo while se la scommessa è stata piazzata con successo
+            }
+          }  
+        }
+        if (totBet == 0) {
+          System.out.println("You have to bet at least 1 fiche");
+        }
+      }
+
+      System.out.println("You bet: " + totBet);
+      os.writeBytes("Bet: " + totBet + '\n');
+
+      System.out.println("Fiches left: " + fiches.getTotalValue());
+      os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
+
+      //distribute cards
+      receiveMessage(is);
+      
+
+
       String userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
         break;
+
     }
 
     os.close(); 
