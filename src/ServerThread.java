@@ -65,6 +65,8 @@ public class ServerThread extends Thread{
 
         os.writeBytes("Your cards: \n" + card1 + "\n" + card2 + "\n");
 
+        receiveMessage(is); // bet
+
       }
       os.close(); 
       is.close(); 
