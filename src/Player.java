@@ -38,10 +38,7 @@ public class Player {
 
     while(true){
 
-      String serverMessage;
-      while ((serverMessage = is.readLine()) != null) {
-        System.out.println(serverMessage);
-      }
+      receiveAndDisplayMessages(is);
 
       int verify = 0;
 
@@ -82,14 +79,14 @@ public class Player {
         }
       }
       
-      serverMessage = is.readLine();
+      receiveAndDisplayMessages(is);
       
       os.writeBytes("Bet: " + totBet + '\n');
 
       System.out.println("Fiches left: " + fiches.getTotalValue());
       os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
       
-
+      
       // Leggi il comando inviato dal ServerThread
       String serverCommand = is.readLine();      
       if (serverCommand.equals("INITIAL_CARDS")) {
@@ -255,11 +252,18 @@ public class Player {
     
   } 
 
-  private String getUserResponse() throws IOException {
+  public String getUserResponse() throws IOException {
     BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
     System.out.print("Enter your response: ");
     return stdIn.readLine();
   }
+
+  public void receiveAndDisplayMessages(DataInputStream is) throws IOException {
+    String serverMessage;
+    while ((serverMessage = is.readLine()) != null) {
+      System.out.println(serverMessage);
+    }
+}
 
   public static void main (String[] args) throws Exception { 
     Player tcpClient = new Player(); 
