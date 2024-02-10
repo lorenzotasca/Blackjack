@@ -95,6 +95,7 @@ public class Player {
       receiveMessage(is);
 
       receiveMessage(is); // value of the cards
+      receiveMessage(is);
 
       if(receiveMessage(is).startsWith("Blackjack")){
         break;   
