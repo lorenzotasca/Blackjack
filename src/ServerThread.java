@@ -82,20 +82,20 @@ public class ServerThread extends Thread{
 
 
         if ((valueCard1 == 11 && valueCard2 == 10) || (valueCard1 == 10 && valueCard2 == 11)) {
-          os.writeBytes("Blackjack! Your total value is 21.");
+          os.writeBytes("Blackjack! Your total value is 21. \n");
           System.out.println("Blackjack!\n");
           verify = -1;
           break;
         }
 
-        os.writeBytes("What do you want to do? (hit/stand): ");
+        os.writeBytes("What do you want to do? (hit/stand): \n");
         //String response = stdIn.readLine();
         //os.writeBytes(response + '\n');  
     
         // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
         if (receiveMessage(is).equals("hit")) {
           String newCard = dealer.Distribute(card.bunchs);
-          os.writeBytes("\nNew card:");
+          os.writeBytes("\nNew card: \n");
           os.writeBytes(newCard + "\n");
           System.out.println("New card of Player: \n");
 
@@ -103,11 +103,11 @@ public class ServerThread extends Thread{
 
           System.out.println(newCard + "\n");
           totalValue += card.calculateValueCard(newCard);
-          os.writeBytes("New total value of your cards: " + totalValue);
+          os.writeBytes("New total value of your cards: " + totalValue + "\n");
           System.out.println("New total value of Player:" + totalValue + "\n");
 
           if (totalValue > 21) {
-            os.writeBytes("Busted! Your total value is " + totalValue + ", over 21.");
+            os.writeBytes("Busted! Your total value is " + totalValue + ", over 21. \n");
             System.out.println("Busted with " + totalValue + "\n");
             verify = -1;
             break;
@@ -115,13 +115,13 @@ public class ServerThread extends Thread{
 
         }else if (receiveMessage(is).equals("stand")) {
 
-          os.writeBytes("You chose to stand. Your final total value: " + totalValue);
+          os.writeBytes("You chose to stand. Your final total value: " + totalValue + '\n');
           System.out.println("Stand with " + totalValue + '\n');
           verify = -1;
           break;
           
         } else {
-          os.writeBytes("Invalid response. Please enter 'hit' or 'stand'.");
+          os.writeBytes("Invalid response. Please enter 'hit' or 'stand'. \n");
         }
 
 

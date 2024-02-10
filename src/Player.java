@@ -103,12 +103,12 @@ public class Player {
         //receiveMessage(is); //blackjack     
       }
       
-      receiveMessage(is);
       receiveMessage(is); // what player wants to do
       String userInput = stdIn.readLine();
       os.writeBytes(userInput + '\n');
 
       if(userInput.equals("hit")){
+        receiveMessage(is); // new card
         receiveMessage(is); // new card
         receiveMessage(is); // new card
 
@@ -121,6 +121,7 @@ public class Player {
 
       }
       else if(userInput.equals("stand")){
+        receiveMessage(is); 
         break;
       }
       else if(userInput.equals("double")){ // da fare
