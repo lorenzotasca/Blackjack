@@ -94,6 +94,7 @@ public class Player {
       receiveMessage(is);
       receiveMessage(is);
 
+      receiveMessage(is);
       receiveMessage(is); // value of the cards
       
 
