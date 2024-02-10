@@ -85,9 +85,14 @@ public class Player {
       System.out.println("Fiches left: " + fiches.getTotalValue());
       os.writeBytes("Fiches left: " + fiches.getTotalValue() + '\n');
 
-      //distribute cards
+      
       receiveMessage(is);
       
+      //distribute cards
+      receiveMessage(is);
+      receiveMessage(is);
+      receiveMessage(is);
+      receiveMessage(is);
 
 
       String userInput = stdIn.readLine(); 

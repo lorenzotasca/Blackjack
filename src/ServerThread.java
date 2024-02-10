@@ -46,7 +46,7 @@ public class ServerThread extends Thread{
 
         int verify = 0;
   
-        os.writeBytes("The game is starting\n\n");
+        os.writeBytes("The game is starting\n");
   
         Thread.sleep(1000);                
         
