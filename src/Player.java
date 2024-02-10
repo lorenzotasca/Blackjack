@@ -95,13 +95,14 @@ public class Player {
       receiveMessage(is);
 
       receiveMessage(is); // value of the cards
-      receiveMessage(is);
+      
 
       if(receiveMessage(is).startsWith("Blackjack")){
         break;   
         //receiveMessage(is); //blackjack     
       }
       
+      receiveMessage(is);
       receiveMessage(is); // what player wants to do
       String userInput = stdIn.readLine();
       os.writeBytes(userInput + '\n');
