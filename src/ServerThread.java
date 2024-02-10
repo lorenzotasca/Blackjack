@@ -34,7 +34,7 @@ public class ServerThread extends Thread{
 
       DataInputStream is = new DataInputStream(socket.getInputStream());
       DataOutputStream os = new DataOutputStream(socket.getOutputStream());
-      BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+      //BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 
       os.writeBytes("Welcome player\n");
       //System.out.print("Welcome player, please insert yosur name: ");
@@ -66,6 +66,11 @@ public class ServerThread extends Thread{
         os.writeBytes("Your cards: \n" + card1 + "\n" + card2 + "\n");
 
         receiveMessage(is); // bet
+
+        String userInput = is.readLine();
+        if (userInput.equals("QUIT"))
+          break;
+        os.writeBytes(userInput + '\n');
 
       }
       os.close(); 
