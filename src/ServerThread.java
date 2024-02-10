@@ -95,6 +95,7 @@ public class ServerThread extends Thread{
         // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
         if (receiveMessage(is).equals("hit")) {
           String newCard = dealer.Distribute(card.bunchs);
+          os.writeBytes("Hit\n");
           os.writeBytes("\nNew card: \n");
           os.writeBytes(newCard + "\n");
           System.out.println("New card of Player: \n");
@@ -115,6 +116,7 @@ public class ServerThread extends Thread{
 
         }else if (receiveMessage(is).equals("stand")) {
 
+          os.writeBytes("STAND\n");
           os.writeBytes("You chose to stand. Your final total value: " + totalValue + '\n');
           System.out.println("Stand with " + totalValue + '\n');
           verify = -1;
