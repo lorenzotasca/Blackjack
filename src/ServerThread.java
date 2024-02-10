@@ -63,9 +63,11 @@ public class ServerThread extends Thread{
     
         int totalValue = valueCard1 + valueCard2;
 
-        os.writeBytes("Your cards: \n" + card1 + "\n" + card2 + "\n");
+        os.writeBytes("\nYour cards: \n" + card1 + "\n" + card2 + "\n");
 
         receiveMessage(is); // bet
+
+        System.out.println("Your cards: \n" + card1 + "\n" + card2 + "\n");
 
         String userInput = is.readLine();
         if (userInput.equals("QUIT"))
