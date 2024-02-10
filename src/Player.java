@@ -88,11 +88,61 @@ public class Player {
       
       receiveMessage(is);
       
-      //distribute cards
+      //distribute start cards
       receiveMessage(is);
       receiveMessage(is);
       receiveMessage(is);
       receiveMessage(is);
+
+      receiveMessage(is); // value of the cards
+
+      while(true){
+        
+        if(receiveMessage(is).startsWith("Blackjack")){
+          break;   
+          //receiveMessage(is); //blackjack     
+        }
+        
+        receiveMessage(is); // what player wants to do
+        String userInput = stdIn.readLine();
+        os.writeBytes(userInput + '\n');
+
+        if(userInput.equals("hit")){
+          receiveMessage(is); // new card
+          receiveMessage(is); // new card
+
+          receiveMessage(is); // new total value
+
+          if(receiveMessage(is).startsWith("Busted")){
+            receiveMessage(is); // busted
+            break;
+          }
+
+        }
+        else if(userInput.equals("stand")){
+          break;
+        }
+        else if(userInput.equals("double")){ // da fare
+          receiveMessage(is); // new card
+          break;
+        }
+        else if(userInput.equals("split")){ // da fare
+          receiveMessage(is); // new card
+          break;
+        }
+        else{
+          receiveMessage(is); //invalid response
+        }
+
+
+
+      }
+
+       
+
+      
+
+
 
 
       String userInput = stdIn.readLine(); 
@@ -104,6 +154,7 @@ public class Player {
     os.close(); 
     is.close(); 
     socket.close(); 
+  
 
   } 
 
