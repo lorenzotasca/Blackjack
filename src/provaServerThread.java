@@ -3,19 +3,18 @@ import java.net.Socket;
 
 public class provaServerThread extends Thread {
     private Socket socket;
-    private DataInputStream is;
-    private DataOutputStream os;
-    private Dealer dealer;
-    private Card card;
-    private Fiches fiches;
+    Dealer dealer;
+    Card card;
+    Fiches fiches;
+    DataInputStream is = new DataInputStream(socket.getInputStream());
+    DataOutputStream os = new DataOutputStream(socket.getOutputStream());
 
-    public provaServerThread(Socket socket, Dealer dealer) throws IOException {
+    public provaServerThread(Socket socket) throws IOException {
         this.socket = socket;
-        this.dealer = dealer;
-        this.is = new DataInputStream(socket.getInputStream());
-        this.os = new DataOutputStream(socket.getOutputStream());
-        this.card = new Card();
-        this.fiches = new Fiches();
+        dealer = new Dealer();
+        
+        card = new Card();
+        fiches = new Fiches();
         card.CreateStructureBunch();
     }
 
@@ -63,6 +62,7 @@ public class provaServerThread extends Thread {
     @Override
     public void run() {
         try {
+            
             // Gestire le azioni del giocatore
             handleBet();
             handleGameStart();

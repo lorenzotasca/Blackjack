@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "oldPlayer",
+            "request": "launch",
+            "mainClass": "oldPlayer",
+            "projectName": "Blackjack_6b94389c"
+        },
+        {
+            "type": "java",
             "name": "provaPlayer",
             "request": "launch",
             "mainClass": "provaPlayer",
