@@ -70,17 +70,17 @@ public class provaServerThread extends Thread {
             while (true) {
                 handlePlayerAction();
                 handleGameResponse();
+
+                String userInput = is.readLine();
+                if (userInput.equals("QUIT"))
+                    break;
             }
+            
+            is.close();
+            os.close();
+            socket.close();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-                os.close();
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
