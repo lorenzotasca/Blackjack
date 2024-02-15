@@ -77,9 +77,9 @@ public class provaPlayer {
         Socket socket = new Socket("localhost", 7777);
     
         // Stream di byte da passare al Socket
-        DataOutputStream os = new DataOutputStream(socket.getOutputStream());
-        DataInputStream is = new DataInputStream(socket.getInputStream());
-        BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+        os = new DataOutputStream(socket.getOutputStream());
+        is = new DataInputStream(socket.getInputStream());
+        stdIn = new BufferedReader(new InputStreamReader(System.in));
     
         // Introduction
         receiveMessage(); // Stampa il messaggio di benvenuto
