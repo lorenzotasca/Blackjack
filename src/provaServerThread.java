@@ -75,6 +75,8 @@ public class provaServerThread extends Thread {
             e.printStackTrace();
         } finally {
             try {
+                is.close();
+                os.close();
                 socket.close();
             } catch (IOException e) {
                 e.printStackTrace();

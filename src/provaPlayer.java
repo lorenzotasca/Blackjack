@@ -2,10 +2,9 @@ import java.io.*;
 import java.net.Socket;
 
 public class provaPlayer {
-    private Card card;
-    private Dealer dealer;
-    private Fiches fiches;
-    private Socket socket;
+    Card card;
+    Dealer dealer;
+    Fiches fiches;
     private DataInputStream is;
     private DataOutputStream os;
     private BufferedReader stdIn;
