@@ -29,7 +29,8 @@ public class Dealer {
           Socket socket = serverSocket.accept();
           System.out.println("Receiving an opening call from:\n" + socket);
           //avvia il processo per ogni client 
-          ServerThread serverThread = new ServerThread(socket);
+          provaServerThread serverThread = new provaServerThread(socket, new Dealer());
+          //ServerThread serverThread = new ServerThread(socket);
           serverThread.start();
         }
     
