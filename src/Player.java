@@ -115,6 +115,7 @@ public class Player {
         receiveMessage(is); // new card
         receiveMessage(is); // new card
 
+        receiveMessage(is);
         receiveMessage(is); // new total value
 
         if(receiveMessage(is).startsWith("Busted")){
