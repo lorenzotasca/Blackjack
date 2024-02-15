@@ -59,7 +59,6 @@ public class provaServerThread extends Thread {
         // Invia eventuali risposte al giocatore
     }
 
-    @Override
     public void run() {
         try {
             
