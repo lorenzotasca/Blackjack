@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "provaDealer",
+            "request": "launch",
+            "mainClass": "provaDealer",
+            "projectName": "Blackjack_6b94389c"
+        },
+        {
+            "type": "java",
             "name": "oldPlayer",
             "request": "launch",
             "mainClass": "oldPlayer",
