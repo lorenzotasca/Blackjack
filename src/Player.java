@@ -108,9 +108,9 @@ public class Player {
       String userInput = stdIn.readLine();
       os.writeBytes(userInput + '\n');
 
-      //String serverResponse = receiveMessage(is);
+      String serverResponse = receiveMessage(is);
 
-      if(receiveMessage(is).equals("HIT")){
+      if(serverResponse.equals("HIT")){
         receiveMessage(is); // new card
         receiveMessage(is); // new card
         receiveMessage(is); // new card
@@ -123,7 +123,7 @@ public class Player {
         }
 
       }
-      else if(receiveMessage(is).equals("STAND")){
+      else if(serverResponse.equals("STAND")){
         receiveMessage(is); 
         break;
       }
