@@ -106,13 +106,14 @@ public class Player {
       
       receiveMessage(is); // what player wants to do
 
-      
+
       String userInput = stdIn.readLine();
       os.writeBytes(userInput + '\n');
 
       String serverResponse = receiveMessage(is);
 
       if(serverResponse.startsWith("HIT")){
+        System.out.println("entra");
         receiveMessage(is); // new card
         receiveMessage(is); // new card
         receiveMessage(is); // new card
