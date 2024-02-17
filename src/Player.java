@@ -103,12 +103,14 @@ public class Player {
         break;   
         //receiveMessage(is); //blackjack     
       }
-      
-      receiveMessage(is); // what player wants to do
 
+      receiveMessage(is);      
+      receiveMessage(is); // what player wants to do
 
       String userInput = stdIn.readLine();
       os.writeBytes(userInput + '\n');
+
+      
 
       String serverResponse = receiveMessage(is);
 
