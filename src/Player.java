@@ -109,7 +109,7 @@ public class Player {
       String userInput = stdIn.readLine();
       os.writeBytes(userInput + '\n');
 
-      
+      receiveMessage(is);
 
       String serverResponse = receiveMessage(is);
 
