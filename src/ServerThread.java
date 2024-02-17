@@ -94,7 +94,7 @@ public class ServerThread extends Thread{
           receiveMessage(is); // hit or stand
 
           // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
-          if (receiveMessage(is).equals("hit")) {
+          if (receiveMessage(is).startsWith("hit")) {
             String newCard = dealer.Distribute(card.bunchs);
             os.writeBytes("HIT\n");
             os.writeBytes("\nNew card: \n");
