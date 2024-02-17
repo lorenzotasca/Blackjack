@@ -106,8 +106,8 @@ public class Player {
 
       receiveMessage(is); // what player wants to do
 
-      String userInput = is.readLine();
-      os.writeBytes(userInput + '\n');
+      //String userInput = is.readLine();
+      //os.writeBytes(userInput + '\n');
 
 
       String serverResponse = receiveMessage(is);
@@ -131,14 +131,14 @@ public class Player {
         receiveMessage(is); 
         break;
       }
-      else if(userInput.startsWith("double")){ // da fare
+      /*else if(userInput.startsWith("double")){ // da fare
         receiveMessage(is); // new card
         break;
       }
       else if(userInput.startsWith("split")){ // da fare
         receiveMessage(is); // new card
         break;
-      }
+      }*/
       else{
         receiveMessage(is); //invalid response
       }
@@ -151,14 +151,10 @@ public class Player {
 
       //}
 
-       
-
-      
 
 
 
-
-      userInput = stdIn.readLine(); 
+      String userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
         break;
 
