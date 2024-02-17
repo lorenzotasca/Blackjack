@@ -22,17 +22,20 @@ public class provaDealer {
     }
 
 
-    public void start() {
-        while (true) {
-            try {
-                System.out.println("Waiting for clients...");
-                Socket clientSocket = serverSocket.accept();
-                System.out.println("Client connected: " + clientSocket.getInetAddress().getHostAddress());
-                provaServerThread serverThread = new provaServerThread(clientSocket, this);
-                serverThread.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    public void start() throws Exception {
+        ServerSocket serverSocket = new ServerSocket(7777);
+    
+        //Ciclo infinito di ascolto dei Client
+        //fai uscire le carte anche al dealer
+        while(true)
+        {
+          System.out.println(" Waiting... ");
+          Socket socket = serverSocket.accept();
+          System.out.println("Receiving an opening call from:\n" + socket);
+          //avvia il processo per ogni client 
+          provaServerThread serverThread = new provaServerThread(socket, this);
+          //ServerThread serverThread = new ServerThread(socket);
+          serverThread.start();
         }
     }
 
