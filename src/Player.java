@@ -104,7 +104,6 @@ public class Player {
         //receiveMessage(is); //blackjack     
       }
 
-      receiveMessage(is);      
       receiveMessage(is); // what player wants to do
 
       String userInput = stdIn.readLine();
