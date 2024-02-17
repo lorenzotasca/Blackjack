@@ -125,6 +125,7 @@ public class Player {
       }
       else if(serverResponse.equals("STAND")){
         receiveMessage(is); 
+        receiveMessage(is); 
         break;
       }
       else if(userInput.equals("double")){ // da fare
