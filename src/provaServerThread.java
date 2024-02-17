@@ -12,8 +12,7 @@ public class provaServerThread extends Thread {
     public provaServerThread(Socket socket, provaDealer dealer) throws IOException {
         this.socket = socket;
         this.dealer = dealer;
-        this.is = new DataInputStream(socket.getInputStream());
-        this.os = new DataOutputStream(socket.getOutputStream());
+        
         this.card = new Card();
         this.fiches = new Fiches();
         card.CreateStructureBunch();
@@ -64,6 +63,9 @@ public class provaServerThread extends Thread {
     public void run() {
         try {
             // Gestire le azioni del giocatore
+            is = new DataInputStream(socket.getInputStream());
+            os = new DataOutputStream(socket.getOutputStream());
+            
             handleBet();
             handleGameStart();
             handleCardDistribution();
