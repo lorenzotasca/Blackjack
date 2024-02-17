@@ -106,10 +106,9 @@ public class Player {
 
       receiveMessage(is); // what player wants to do
 
-      String userInput = stdIn.readLine();
+      String userInput = is.readLine();
       os.writeBytes(userInput + '\n');
 
-      receiveMessage(is);
 
       String serverResponse = receiveMessage(is);
 
