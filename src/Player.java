@@ -110,7 +110,7 @@ public class Player {
 
       String serverResponse = receiveMessage(is);
 
-      if(serverResponse.equals("HIT")){
+      if(serverResponse.startsWith("HIT")){
         receiveMessage(is); // new card
         receiveMessage(is); // new card
         receiveMessage(is); // new card
@@ -123,16 +123,16 @@ public class Player {
         }
 
       }
-      else if(serverResponse.equals("STAND")){
+      else if(serverResponse.startsWith("STAND")){
         receiveMessage(is); 
         receiveMessage(is); 
         break;
       }
-      else if(userInput.equals("double")){ // da fare
+      else if(userInput.startsWith("double")){ // da fare
         receiveMessage(is); // new card
         break;
       }
-      else if(userInput.equals("split")){ // da fare
+      else if(userInput.startsWith("split")){ // da fare
         receiveMessage(is); // new card
         break;
       }
