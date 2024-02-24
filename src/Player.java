@@ -110,9 +110,9 @@ public class Player {
       //os.writeBytes(userInput + '\n');
 
 
-      String serverResponse = receiveMessage(is);
+      //String serverResponse = receiveMessage(is);
 
-      if(serverResponse.startsWith("HIT")){
+      if(receiveMessage(is).startsWith("HIT")){
         System.out.println("entra");
         receiveMessage(is); // new card
         receiveMessage(is); // new card
@@ -126,7 +126,7 @@ public class Player {
         }
 
       }
-      else if(serverResponse.startsWith("STAND")){
+      else if(receiveMessage(is).startsWith("STAND")){
         receiveMessage(is); 
         receiveMessage(is); 
         break;
