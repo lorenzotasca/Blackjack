@@ -140,6 +140,7 @@ public class Player {
         break;
       }*/
       else{
+        System.out.println("Non va");
         receiveMessage(is); //invalid response
       }
 
