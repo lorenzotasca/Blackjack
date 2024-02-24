@@ -106,6 +106,7 @@ public class Player {
 
       receiveMessage(is); // what player wants to do
 
+      //deve prendere solo la risposta
       String userInput = is.readLine();
       os.writeBytes(userInput + '\n');
 
