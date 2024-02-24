@@ -91,10 +91,10 @@ public class ServerThread extends Thread{
           os.writeBytes("What do you want to do? (hit/stand): \n");
           //String response = stdIn.readLine();
           //os.writeBytes(response + '\n');  
-          String response = receiveMessage(is); // hit or stand
+          //receiveMessage(is); // hit or stand
 
           // fai anche tutti gli altri casi, ad esempio se le due carte sono uguali, si può sdoppiare; ecc...
-          if (response.startsWith("hit")) {
+          if (receiveMessage(is).startsWith("hit")) {
             String newCard = dealer.Distribute(card.bunchs);
             os.writeBytes("HIT!\n");
             os.writeBytes("\nNew card: \n");
@@ -115,7 +115,8 @@ public class ServerThread extends Thread{
               break;
             }
 
-          }else if (response.equals("stand")) {
+          }else if (receiveMessage(is).equals("stand")) {
+
             os.writeBytes("STAND\n");
             os.writeBytes("You chose to stand. Your final total value: " + totalValue + '\n');
             System.out.println("Stand with " + totalValue + '\n');
