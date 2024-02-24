@@ -106,8 +106,8 @@ public class Player {
 
       receiveMessage(is); // what player wants to do
 
-      //String userInput = is.readLine();
-      //os.writeBytes(userInput + '\n');
+      String userInput = is.readLine();
+      os.writeBytes(userInput + '\n');
 
 
       String serverResponse = receiveMessage(is);
@@ -155,7 +155,7 @@ public class Player {
 
 
 
-      String userInput = stdIn.readLine(); 
+      userInput = stdIn.readLine(); 
       if (userInput.equals("QUIT")) 
         break;
 
